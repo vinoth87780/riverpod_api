@@ -7,9 +7,7 @@ class LoginScreen extends ConsumerWidget {
   final TextEditingController _passwordController = TextEditingController();
 
   void login(BuildContext context, String email, String password) async {
-    // Adjust the API endpoint based on the environment
-    String apiUrl = 'http://localhost:3333/login'; // For Android emulator
-    // String apiUrl = 'http://<your-local-ip>:3333/login'; // For physical device
+    String apiUrl = 'http://912.168.1.36:3333/login';
 
     try {
       Response response = await post(
@@ -19,7 +17,7 @@ class LoginScreen extends ConsumerWidget {
           'password': password,
         },
       );
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         print('Login successful');
         // Navigate to the homepage or do something else
       } else {
