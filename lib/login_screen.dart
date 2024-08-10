@@ -19,41 +19,38 @@ class LoginScreen extends ConsumerWidget {
       );
       if (response.statusCode == 201) {
         print('Login successful');
-        // Navigate to the homepage or do something else
       } else {
         print('Login failed');
-        // Show an error message or handle the error
       }
     } catch (e) {
       print('Error: ${e.toString()}');
-      // Show a dialog or a snackbar with the error message
     }
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
+      appBar: AppBar(title: const Text('Login')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: 'Email'),
+              decoration: const InputDecoration(labelText: 'Email'),
             ),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(labelText: 'Password'),
+              decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 login(context, _emailController.text.trim(),
                     _passwordController.text.trim());
               },
-              child: Text('Login'),
+              child: const Text('Login'),
             ),
           ],
         ),
